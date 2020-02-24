@@ -1,0 +1,53 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ lecture.subject | titlecase }}</ion-card-title>
+    <ion-card-subtitle>{{ lecture.branch.code | uppercase }}, {{ lecture.year | uppercase }}</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content class="ion-no-padding">
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-padding-start ion-margin-vertical">
+        <ion-col>
+          <ion-text>
+            <strong>From :</strong> {{ lecture.startTime }} <strong>To :</strong> {{ lecture.endTime }}
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <strong>Theory/Practical :</strong> {{ lecture.isPractical ? 'Practical': 'Theory' }}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-padding-start ion-margin-vertical">
+        <ion-col>
+          <ion-text>
+            <strong>Day :</strong> {{ day }}
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <strong>Room No. :</strong> {{ lecture.roomNumber }}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-padding-start ion-margin-vertical">
+        <ion-col>
+          <ion-text>
+            <strong>Professor :</strong> {{ lecture.professor.firstName + ' ' + lecture.professor.lastName | titlecase }}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-padding-start ion-margin-vertical">
+        <ion-col *ngIf="lecture.batch">
+          <ion-text>
+            <strong>Batch :</strong> {{ lecture.batch | uppercase }}
+          </ion-text>
+        </ion-col>
+        <ion-col *ngIf="lecture.division">
+          <ion-text>
+            <strong>Division :</strong> {{ lecture.division | uppercase }}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
