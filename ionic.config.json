@@ -1,5 +1,7 @@
 {
   "name": "vcet-essentials",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
