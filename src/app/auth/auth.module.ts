@@ -1,25 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
 import { AuthPage } from './auth.page';
+import {AuthGuardService} from './services/auth-guard.service';
 
 const routes: Routes = [
   {
     path: '',
-    component: AuthPage
+    component: AuthPage,
+    canActivate: [AuthGuardService]
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ReactiveFormsModule
   ],
   declarations: [AuthPage]
 })

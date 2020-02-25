@@ -1,4 +1,4 @@
-import {OrgFilterModel} from '../events/models/orgFilter.model';
+import {OrgFilterModel} from '../shared-models/orgFilter.model';
 import orgs from '../../data/orgs.data';
 
 const orgFilter: OrgFilterModel[] = [

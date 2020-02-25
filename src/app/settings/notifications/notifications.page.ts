@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationsPage implements OnInit {
 
-  constructor() { }
+  constructor() {
+    console.log('notification module started');
+  }
 
   ngOnInit() {
   }

@@ -1,9 +1,45 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>events</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Events</ion-title>
+    <ion-item slot="end" button color="primary">
+      <!-- filter chip -->
+      <ion-chip *ngIf="isFilterActive" (click)="onChipPress()">
+        <ion-label color="light">{{ chipText | uppercase }}</ion-label>
+        <ion-icon name="close"></ion-icon>
+      </ion-chip>
+      <!-- filter icon & label -->
+      <ion-icon name="funnel"></ion-icon>
+      <ion-label>Filter</ion-label>
+      <!-- select option -->
+      <ion-select (ionChange)="onFilterChange($event)" *ngIf="!isFilterActive">
+        <ion-select-option *ngFor="let option of filter" [value]="option.value" [disabled]="option.disable">{{ option.text | titlecase }}</ion-select-option>
+      </ion-select>
+    </ion-item>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <!-- current and upcoming events tab -->
+  <ion-segment (ionChange)="onTabChange($event)">
+    <ion-segment-button value="currentEvent" checked>Current Events</ion-segment-button>
+    <ion-segment-button value="upcomingEvent">Upcoming Events</ion-segment-button>
+  </ion-segment>
+  <!-- tab for currentEvent -->
+  <app-event-list
+          *ngIf="selectedTab === 'currentEvent'"
+          [events]="currentEvents"
+          [eventCategory]="'current'"
+          [filterOrgCode]="filterOrgCode">
+  </app-event-list>
+  <!-- tab for upcomingEvent -->
+  <app-event-list
+          *ngIf="selectedTab === 'upcomingEvent'"
+          [events]="upcomingEvents"
+          [eventCategory]="'upcoming'"
+          [filterOrgCode]="filterOrgCode">
+  </app-event-list>
 
 </ion-content>

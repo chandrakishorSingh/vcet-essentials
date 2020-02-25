@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+
+import {EventService} from '../services/event.service';
+
+import {EventModel} from '../models/event.model';
+
+import socialMediaIcons from '../data/socialMediaIcons.data';
 
 @Component({
   selector: 'app-event-detail',
@@ -7,8 +14,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventDetailComponent implements OnInit {
 
-  constructor() { }
+  event: EventModel;
+  socialMediaIcons = socialMediaIcons;
 
-  ngOnInit() {}
+  constructor(private activatedRoute: ActivatedRoute,
+              private eventService: EventService) { }
+
+  ngOnInit() {
+    const index = +this.activatedRoute.snapshot.paramMap.get('id');
+    const eventCategory = this.activatedRoute.snapshot.paramMap.get('eventCategory') as 'current' | 'upcoming';
+
+    this.event = this.eventService.getEventByEventCategoryAndIndex(eventCategory, index);
+  }
+
+  onSocialMediaClick(url: string): void {
+    window.open(url);
+  }
 
 }

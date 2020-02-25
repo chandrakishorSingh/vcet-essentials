@@ -8,12 +8,10 @@ import {UserService} from '../../shared-services/user.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanLoad {
+export class HomeGuardService implements CanLoad {
 
   constructor(private userService: UserService,
-              private router: Router) {
-    console.log('auth guard service started');
-  }
+              private router: Router) {}
 
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
     this.userService.hasUserNative().then((hasUser) => {

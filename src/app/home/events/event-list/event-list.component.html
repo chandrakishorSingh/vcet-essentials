@@ -1,3 +1,32 @@
-<p>
-  event-list works!
-</p>
+<ion-grid>
+  <ion-row *ngIf="events.length > 0">
+    <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center">
+      <ion-list>
+        <ion-item
+                *ngFor="let event of events; let i = index;"
+                [routerLink]="['/', 'home', 'tabs', 'events', eventCategory, i]"
+                detail>
+          <ion-thumbnail slot="start">
+            <ion-img [src]="event.posterURL"></ion-img>
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{ event.title | titlecase }}</h2>
+            <p>{{ event.description }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="events.length === 0 || !events">
+    <ion-col>
+      <ion-text color="medium">
+        <div *ngIf="filterOrgCode">
+          <h4><strong>There are no {{ eventCategory }} events by {{ orgs[filterOrgCode].name + ' ' | titlecase }} {{ orgs[filterOrgCode].type | titlecase }}.</strong></h4>
+        </div>
+        <div *ngIf="!filterOrgCode">
+          <h4><strong>There are no {{ eventCategory }} events.</strong></h4>
+        </div>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+</ion-grid>

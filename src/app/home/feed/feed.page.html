@@ -1,9 +1,50 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>feed</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>VCET Essentials</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding">
+  <ion-grid *ngIf="events.length > 0">
+    <ion-row>
+      <ion-col>
+        <ion-text color="primary" class="ion-text-center">
+          <h3><strong>Current Events</strong></h3>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-slides pager="true" [options]="sliderConfig">
+          <ion-slide *ngFor="let event of events; let i = index;">
+            <ion-row>
+              <ion-col class="ion-text-center">
+                <ion-card>
+                  <ion-card-header>
+                    <ion-card-title color="primary">{{ event.title | titlecase }}</ion-card-title>
+                  </ion-card-header>
+                  <ion-img [src]="event.posterURL"></ion-img>
+                  <ion-card-content>
+                    <p>{{ event.description }}</p>
+                  </ion-card-content>
+                  <div>
+                    <ion-button
+                            fill="clear"
+                            color="primary"
+                            [routerLink]="['/', 'home', 'tabs', 'events', 'current', i]">
+                      More
+                    </ion-button>
+                  </div>
+                </ion-card>
+                <br>
+              </ion-col>
+            </ion-row>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

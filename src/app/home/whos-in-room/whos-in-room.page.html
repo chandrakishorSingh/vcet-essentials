@@ -1,9 +1,33 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>whos-in-room</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Who's In Room</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-toolbar>
+    <ion-searchbar
+            (ionInput)="onIonSearchbarInput($event)"
+            (ionFocus)="onIonSearchbarFocus()"
+            (ionBlur)="onIonSearchbarBlur()"
+            type="number"
+            inputmode="decimal"
+            [animated]=true
+            [value]="currentRoomNumber"
+            placeholder="Enter room no. of any class">
+    </ion-searchbar>
+  </ion-toolbar>
+  <ion-list *ngIf="isSearchbarFocus">
+    <ion-item *ngFor="let roomNumber of rooms;" (click)="onRoomNumberSelect(roomNumber)">{{ roomNumber }}</ion-item>
+  </ion-list>
+  <ion-grid *ngIf="isLectureFound">
+    <ion-row *ngFor="let lecture of lectures">
+      <ion-col>
+        <app-classroom-info-card [lecture]="lecture"></app-classroom-info-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

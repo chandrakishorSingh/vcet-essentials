@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LectureModel} from '../../../models/lecture.model';
+import {LectureModel} from '../../models/lecture.model';
 import {WeekDay} from '@angular/common';
 
 @Component({

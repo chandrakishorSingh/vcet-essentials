@@ -1,9 +1,59 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>locate-professor</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Locate Professor</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-toolbar>
+    <ion-searchbar
+            (ionInput)="onIonSearchbarInput($event)"
+            (ionFocus)="onIonSearchbarFocus()"
+            (ionBlur)="onIonSearchbarBlur()"
+            type="text"
+            [animated]=true
+            [value]="currentProfessorName"
+            placeholder="Enter name of professor to locate">
+    </ion-searchbar>
+  </ion-toolbar>
+  <ion-list *ngIf="isSearchbarFocus">
+    <ion-item *ngFor="let professor of professors;" (click)="onProfessorSelect(professor)">{{ 'Prof. ' + professor.firstName + ' ' + professor.lastName | titlecase}}</ion-item>
+  </ion-list>
+  <ion-grid *ngIf="currentLecture || selectedProfessor">
+    <ion-row>
+      <ion-col>
+        <div *ngIf="currentLecture">
+          <h5 class="ion-padding">{{ currentProfessorName }} is currently teaching in following lecture.</h5>
+          <app-classroom-info-card [lecture]="currentLecture"></app-classroom-info-card>
+        </div>
+        <div *ngIf="!currentLecture && selectedProfessor">
+          <h5 class="ion-padding">{{ currentProfessorName }} is currently not teaching in any class. Below is professor's cabin room no.</h5>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>{{ 'Prof. ' + selectedProfessor.firstName + ' ' + selectedProfessor.lastName | titlecase }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid class="ion-no-padding">
+                <ion-row class="ion-padding-start ion-margin-vertical">
+                  <ion-col>
+                    <ion-text>
+                      <strong>Department :</strong> {{ selectedProfessor.department.name | titlecase}}
+                    </ion-text>
+                  </ion-col>
+                  <ion-col>
+                    <ion-text>
+                      <strong>Cabin Room No. :</strong> {{ selectedProfessor.cabinNumber }}
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

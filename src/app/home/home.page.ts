@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {LoadingController} from '@ionic/angular';
+
+import {AuthService} from '../auth/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private authService: AuthService,
+              private loadingController: LoadingController) {
+    console.log('Home module started');
   }
 
+  async ngOnInit() {
+    const loadCtrl = await this.loadingController.create({ message: 'Loading...' });
+    await loadCtrl.present();
+
+    await this.authService.silentLogin();
+    await loadCtrl.dismiss();
+  }
 }
