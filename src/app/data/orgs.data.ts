@@ -1,20 +1,22 @@
-const orgs = {
-    civil: { name: 'civil', code: 'civil', type: 'department' },
-    extc: { name: 'electronics and telecommunication', code: 'extc', type: 'department' },
-    mech: { name: 'mechanical', code: 'mech', type: 'department' },
-    comp: { name: 'computer', code: 'comp', type: 'department' },
-    inft: { name: 'information technology', code: 'inft', type: 'department' },
-    inst: { name: 'instrumentation', code: 'inst', type: 'department' },
-    ash: { name: 'applied science and humanities', code: 'ash', type: 'department' },
-    exam: { name: 'exam section', code: 'exam', type: 'department' },
-    office: { name: 'office', code: 'office', type: 'department' },
+import {OrgModel} from '../models/org.model';
 
-    udaan: { name: 'udaan', code: 'udaan', type: 'committee' },
-    council: { name: 'student council', code: 'council', type: 'committee' },
-    magazine: { name: 'magazine', code: 'magazine', type: 'committee' },
-    csi: { name: 'computer society of india', code: 'csi', type: 'committee' },
-    ecell: { name: 'e cell', code: 'ecell', type: 'committee' },
-    sports: { name: 'sports', code: 'sports', type: 'committee' }
-};
+const orgs: OrgModel[] = [
+    { name: 'civil', code: 'civil', type: 'department' },
+    { name: 'electronics & telecommunications', code: 'extc', type: 'department' },
+    { name: 'mechanical', code: 'mech', type: 'department' },
+    { name: 'computer', code: 'comp', type: 'department' },
+    { name: 'information technology', code: 'inft', type: 'department' },
+    { name: 'instrumentation', code: 'inst', type: 'department' },
+    { name: 'applied science & humanities', code: 'ash', type: 'department' },
+    { name: 'exam section', code: 'exam', type: 'department' },
+    { name: 'office', code: 'office', type: 'department' },
+
+    { name: 'udaan', code: 'udaan', type: 'committee' },
+    { name: 'student council', code: 'council', type: 'committee' },
+    { name: 'magazine', code: 'magazine', type: 'committee' },
+    { name: 'computer society of india', code: 'csi', type: 'committee' },
+    { name: 'e cell', code: 'ecell', type: 'committee' },
+    { name: 'sports', code: 'sports', type: 'committee' }
+];
 
 export default orgs;

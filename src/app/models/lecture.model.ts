@@ -1,9 +1,6 @@
 import {ProfessorModel} from './professor.model';
-import {BranchModel} from '../auth/models/branch.model';
-
-export type YEAR = 'FE' | 'SE' | 'TE' | 'BE';
-export type DAY = 1 | 2 | 3 | 4 | 5;
-export type DIVISION = 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
+import {BranchModel} from './branch.model';
+import {BATCH_CODE, DAY, SEMESTER_CODE, YEAR} from '../types/types';
 
 export class LectureModel {
     constructor(readonly subject: string,
@@ -14,8 +11,8 @@ export class LectureModel {
                 readonly day: DAY,
                 readonly isPractical: boolean,
                 readonly year: YEAR,
+                readonly semester: SEMESTER_CODE,
                 readonly branch: BranchModel,
-                readonly batch?: string,
-                readonly division?: DIVISION
+                readonly batch?: BATCH_CODE
                 ) {}
 }

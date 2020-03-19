@@ -1,4 +1,4 @@
-import {BranchModel} from '../auth/models/branch.model';
+import {BranchModel} from './branch.model';
 
 export class ProfessorModel {
     constructor(readonly firstName: string,

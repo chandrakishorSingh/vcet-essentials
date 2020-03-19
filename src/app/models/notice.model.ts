@@ -1,4 +1,4 @@
-import {OrgModel} from '../../shared-models/org.model';
+import {OrgModel} from './org.model';
 
 export class NoticeModel {
     constructor(public title: string,
