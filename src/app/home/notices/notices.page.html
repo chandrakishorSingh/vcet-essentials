@@ -7,16 +7,18 @@
     <!-- the filter option will only be available on allNotices tab -->
     <ion-item slot="end" button color="primary" *ngIf="selectedTab === 'allNotices'">
       <!-- filter chip -->
-      <ion-chip *ngIf="isFilterActive" (click)="onChipPress()">
+      <ion-chip *ngIf="isFilterActive" (click)="onChipRemove()">
         <ion-label color="light">{{ chipText | uppercase }}</ion-label>
         <ion-icon name="close"></ion-icon>
       </ion-chip>
       <!-- filter icon & label -->
-      <ion-icon name="funnel"></ion-icon>
-      <ion-label>Filter</ion-label>
-      <!-- select option -->
-      <ion-select (ionChange)="onFilterChange($event)" *ngIf="!isFilterActive">
-        <ion-select-option *ngFor="let option of filter" [value]="option.value">{{ option.text | titlecase }}</ion-select-option>
+      <ion-icon *ngIf="!isFilterActive" name="funnel"></ion-icon>
+      <ion-label *ngIf="!isFilterActive">Filter</ion-label>
+      <!-- filter options -->
+      <ion-select (ionChange)="onFilterSelect($event)" *ngIf="!isFilterActive">
+        <ion-select-option *ngFor="let option of filter" [value]="option.code">
+          {{ (option.type === 'department' ? 'Dept. of ' + option.name + ' Engineering': option.name + ' Committee') | titlecase }}
+        </ion-select-option>
       </ion-select>
     </ion-item>
   </ion-toolbar>
@@ -25,17 +27,9 @@
 <ion-content class="ion-padding">
   <!-- allBranch and branchSpecific notices tab -->
   <ion-segment (ionChange)="onTabChange($event)">
-    <ion-segment-button value="branchSpecific" checked>{{ branch | uppercase }} DEPT</ion-segment-button>
-    <ion-segment-button value="allNotices">All Notices</ion-segment-button>
+    <ion-segment-button value="allNotices" checked>All Notices</ion-segment-button>
+    <ion-segment-button value="branchSpecific">{{ branch | uppercase }} DEPT</ion-segment-button>
   </ion-segment>
-  <!-- tab for branchSpecific notices -->
-  <app-notice-list *ngIf="selectedTab === 'branchSpecific'"
-                   [notices]="branchSpecificNotices"
-                   [filterOrgCode]="branch">
-  </app-notice-list>
-  <!-- tab for allNotices -->
-  <app-notice-list *ngIf="selectedTab === 'allNotices'"
-                   [notices]="allNotices"
-                   [filterOrgCode]="filterOrgCode">
-  </app-notice-list>
+  <!-- list of notices(all and branch specific) -->
+  <app-notice-list></app-notice-list>
 </ion-content>

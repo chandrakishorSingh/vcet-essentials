@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import roomNumbers from '../../data/roomNumbers.data';
+import {roomNumbers} from '../../data/roomNumbers.data';
 import {CollegeScheduleService} from '../../shared-services/college-schedule.service';
 import {LectureModel} from '../../models/lecture.model';
 

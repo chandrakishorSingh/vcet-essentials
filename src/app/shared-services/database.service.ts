@@ -3,7 +3,7 @@ import {AngularFirestore} from '@angular/fire/firestore';
 
 import { take } from 'rxjs/operators';
 
-import {UserModel} from '../auth/models/user.model';
+import {UserModel} from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class DatabaseService {
     await users.add(user);
   }
 
-  async getUserWeb(email: string): Promise<UserModel | void> {
+  async getUserWeb(email: string): Promise<UserModel> {
     const userDoc = this.angularFirestore.collection<UserModel>('users');
     const userObservable = userDoc.valueChanges().pipe(take(1));
     const users: UserModel[] = await userObservable.toPromise();

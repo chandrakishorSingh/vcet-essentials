@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
-import {SemesterModel} from './models/semester.model';
-import semesters from './data/semester.data';
+import semesters from '../data/semester.data';
 
-import {BranchModel} from './models/branch.model';
-import branches from './data/branch.data';
+import {BranchModel} from '../models/branch.model';
+import branches from '../data/branch.data';
 
 import {AuthService} from './services/auth.service';
-import {UserModel} from './models/user.model';
+import {UserModel} from '../models/user.model';
 import {Router} from '@angular/router';
+import {BRANCH_CODE, SEMESTER_CODE} from '../types/types';
+import {AlertController, LoadingController} from '@ionic/angular';
 
 @Component({
   selector: 'app-auth',
@@ -19,11 +20,13 @@ import {Router} from '@angular/router';
 export class AuthPage implements OnInit {
 
   form: FormGroup;
-  semesters: SemesterModel[] = semesters;
+  semesters: { code: SEMESTER_CODE }[] = semesters;
   branches: BranchModel[] = branches;
 
   constructor(private authService: AuthService,
-              private router: Router) {
+              private router: Router,
+              private loadingCtrl: LoadingController,
+              private alertCtrl: AlertController) {
     console.log('auth module started');
   }
 
@@ -40,27 +43,55 @@ export class AuthPage implements OnInit {
     });
   }
 
-  onLogin(): void {
+  // handler for login button
+  async onLogin(): Promise<void> {
+    // show spinner while logging in
+    const spinner = await this.loadingCtrl.create({ message: 'Signing in...' });
+    await spinner.present();
+
     this.authService.login()
-        .then((isAuth) => {
-          if (isAuth) {
-            this.router.navigate(['/', 'home']);
-          }
+        .then(async () => {
+          // dismiss spinner, alert the user for successful login and navigate to home
+          await spinner.dismiss();
+          this.alertCtrl
+              .create({header: 'Login Successful!', message: 'Welcome Back To VCET Essentials!', buttons: [{role: 'cancel', text: 'OK'}]})
+              .then((a) => a.present());
+          this.router.navigate(['/', 'home']);
+        })
+        .catch(async err => {
+          // dismiss the spinner and alert the user for unsuccessful login
+          await spinner.dismiss();
+          this.alertCtrl.create({ header: 'Error', message: err.message || 'Unknown Error!' }).then(alert => alert.present());
         });
   }
 
-  onSignup(): void {
+  // handler for signup button
+  async onSignup(): Promise<void> {
+    // extract all the user details from the form and create a user object
     const firstName: string = this.form.get('firstName').value;
     const lastName: string = this.form.get('lastName').value;
-    const branch: string = this.form.get('branch').value;
-    const semester: string = this.form.get('semester').value;
+    const branch: BRANCH_CODE = this.form.get('branch').value;
+    const semester: SEMESTER_CODE = this.form.get('semester').value;
     const user = new UserModel(firstName, lastName, branch, semester, null, null, null, null);
 
+    // show spinner while user is signing up
+    const spinner = await this.loadingCtrl.create({ message: 'Signing up...' });
+    await spinner.present();
+
     this.authService.signup({ ...user })
-        .then((isAuth) => {
-          if (isAuth) {
-            this.router.navigate(['/', 'home']);
-          }
+        .then(async () => {
+          // upon successful sign up, dismiss the spinner, alert user via alert card and navigate to home
+          await spinner.dismiss();
+          this.alertCtrl
+              .create({header: 'Signup Successful!', message: 'Welcome to VCET Essentials!', buttons: [{role: 'cancel', text: 'OK'}]})
+              .then((a) => a.present());
+          await this.router.navigate(['/', 'home']);
+        })
+        .catch(async err => {
+          // dismiss the spinner and alert user about unsuccessful login
+          await spinner.dismiss();
+          this.alertCtrl.create({ header: 'Error', message: err.message || 'Unable To Store User Data In Database' })
+              .then(alert => alert.present());
         });
   }
 

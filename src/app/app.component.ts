@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 
-import { Platform } from '@ionic/angular';
+import {AlertController, LoadingController, Platform} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -25,7 +25,9 @@ export class AppComponent {
     private statusBar: StatusBar,
     private authService: AuthService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private loadingCtrl: LoadingController,
+    private alertCtrl: AlertController
   ) {
     this.initializeApp();
 
@@ -49,8 +51,19 @@ export class AppComponent {
     });
   }
 
-  onLogout() {
+  async onLogout() {
+    const spinner = await this.loadingCtrl.create({ message: 'Logging Out...' });
+    await spinner.present();
     this.authService.logout()
-        .then(() => this.router.navigate(['/', 'auth']));
+        .then(async () => {
+          await spinner.dismiss();
+          this.router.navigate(['/', 'auth']);
+        })
+        .catch(async (err) => {
+          await spinner.dismiss();
+          this.alertCtrl
+              .create({ header: 'Error', message: err.message || 'Unable To Logout Due To Unknown Error!' })
+              .then(alert => alert.present());
+        });
   }
 }

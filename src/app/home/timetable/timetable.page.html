@@ -16,7 +16,7 @@
             <ion-row>
               <ion-col>
                 <ion-item>
-                  <ion-label  position="floating" color="primary"><b>Year</b></ion-label>
+                  <ion-label position="floating" color="primary"><b>Year</b></ion-label>
                   <ion-select (ionFocus)="onInputFocus()" ngModel name="yearControl" required>
                     <ion-select-option [value]="year" *ngFor="let year of years;">{{ year }}</ion-select-option>
                   </ion-select>
@@ -28,7 +28,9 @@
                 <ion-item>
                   <ion-label position="floating" color="primary"><b>Branch</b></ion-label>
                   <ion-select (ionFocus)="onInputFocus()" ngModel name="branchControl" required>
-                    <ion-select-option [value]="branch.code" *ngFor="let branch of branches;">{{ branch.name }}</ion-select-option>
+                    <ion-select-option [value]="branch.code" *ngFor="let branch of branches;"
+                      >{{ branch.name + ' ' + 'Engineering' | titlecase }}</ion-select-option
+                    >
                   </ion-select>
                 </ion-item>
               </ion-col>
@@ -38,12 +40,7 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-button
-                  type="submit"
-                  color="primary"
-                  expand="block"
-          [disabled]="form.invalid">Find
-          </ion-button>
+          <ion-button type="submit" color="primary" expand="block" [disabled]="form.invalid">Find </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

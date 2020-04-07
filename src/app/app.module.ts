@@ -19,6 +19,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
 import {IonicStorageModule} from '@ionic/storage';
+import {UserService} from './shared-services/user.service';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {IonicStorageModule} from '@ionic/storage';
     StatusBar,
     SplashScreen,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
-    GooglePlus
+    GooglePlus,
+    UserService
   ],
   exports: [
   ],

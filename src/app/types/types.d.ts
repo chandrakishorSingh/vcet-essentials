@@ -23,3 +23,7 @@ export type ORG_NAME = BRANCH_NAME |
 export type EVENT_CATEGORY = 'current' | 'upcoming';
 export type SOCIAL_MEDIA_PLATFORM = 'ig' | 'fb' | 'yt' | 'in' | 'tw';
 export type BATCH_CODE = 'A' | 'B' | 'C' | 'D';
+export interface EventFilterState {
+    orgCode: ORG_CODE;
+    eventCategory: EVENT_CATEGORY;
+}

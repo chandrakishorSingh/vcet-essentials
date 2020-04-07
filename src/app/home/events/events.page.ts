@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import {EventModel} from './models/event.model';
-import {OrgFilterModel} from '../shared-models/orgFilter.model';
-
-import orgFilter from '../shared-data/orgFilter.data';
-
+import {EventModel} from '../../models/event.model';
 import {EventService} from './services/event.service';
-import orgs from '../../data/orgs.data';
+import {orgsMapping} from '../../data/orgs.data';
+import {OrgModel} from '../../models/org.model';
+import {ORG_CODE} from '../../types/types';
 
 @Component({
   selector: 'app-events',
@@ -15,57 +13,48 @@ import orgs from '../../data/orgs.data';
 })
 export class EventsPage implements OnInit {
 
-  selectedTab: 'currentEvent' | 'upcomingEvent' = 'currentEvent';
+  selectedTab: 'current' | 'upcoming' = 'current';
   isFilterActive = false;
-  chipText: string = null;
-  filterOrgCode: string = null;
+  chipText: ORG_CODE;
+  filterOrgCode: ORG_CODE;
 
-  currentEvents: EventModel[] = [];
-  upcomingEvents: EventModel[] = [];
-
-  filter: OrgFilterModel[] = orgFilter;
+  filter: OrgModel[] = orgsMapping.getOrgs();
 
   constructor(private eventService: EventService) {}
 
-  ngOnInit() {
-    this.currentEvents = this.eventService.getCurrentEvents();
-    this.upcomingEvents = this.eventService.getUpcomingEvents();
-
-    this.eventService.eventsObservable.subscribe(() => {
-      this.currentEvents = this.eventService.getCurrentEvents();
-      this.upcomingEvents = this.eventService.getUpcomingEvents();
-    });
-  }
+  ngOnInit() {}
 
   onTabChange(event: any): void {
-    this.selectedTab = event.detail.value;
+    // extract the selected tab value and assign it to selectedTab
+    const eventData = event.detail.value;
+    this.selectedTab = eventData;
+    // if filter is active then remove it when moving from one tab to another
     if (this.isFilterActive) {
-      this.onChipPress();
+      this.onChipRemove();
     }
+    this.eventService.eventFilterObservable.next({ orgCode: this.filterOrgCode, eventCategory: this.selectedTab });
   }
 
-  onChipPress(): void {
+  onChipRemove(): void {
+    // make chip invisible and filter button visible
     this.isFilterActive = false;
-    this.filterOrgCode = null;
-    this.chipText = null;
 
-    if (this.selectedTab === 'currentEvent') {
-      this.currentEvents = this.eventService.getCurrentEvents();
-    } else {
-      this.upcomingEvents = this.eventService.getUpcomingEvents();
-    }
+    // make filterOrgCode null as now we are not filtering notices on any org. also emit the filter state
+    this.filterOrgCode = null;
+    this.eventService.eventFilterObservable.next({ orgCode: this.filterOrgCode, eventCategory: this.selectedTab });
   }
 
-  onFilterChange(event: any): void {
+  onFilterSelect(event: any): void {
+    // make chip visible and filter button invisible
     this.isFilterActive = true;
-    this.filterOrgCode = event.detail.value;
-    this.chipText = orgs[event.detail.value].code;
 
-    if (this.selectedTab === 'currentEvent') {
-      this.currentEvents = this.eventService.getCurrentEventsByOrg(event.detail.value);
-    } else {
-      this.upcomingEvents = this.eventService.getUpcomingEventsByOrg(event.detail.value);
-    }
+    // extract the selected org's code and assign it to chip text and filterOrgCode
+    const eventData: ORG_CODE = event.detail.value;
+    this.chipText = eventData;
+    this.filterOrgCode = eventData;
+
+    // emit the filter state
+    this.eventService.eventFilterObservable.next({ orgCode: this.filterOrgCode, eventCategory: this.selectedTab });
   }
 
 }

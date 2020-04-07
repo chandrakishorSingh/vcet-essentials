@@ -1,54 +1,60 @@
 import { Injectable } from '@angular/core';
 
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 
 import {AngularFirestore} from '@angular/fire/firestore';
 
-import {NoticeModel} from '../models/notice.model';
+import {NoticeModel} from '../../../models/notice.model';
 
 import {UserService} from '../../../shared-services/user.service';
+import {ORG_CODE} from '../../../types/types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NoticeService {
 
-  noticesObservable: Observable<NoticeModel[]>;
+  // Observable that observes the 'notices' node in DB and one for notifying changes in this service's notice arr
+  // note that noticesObservable observable notifies changes in this service's notice arr while noticesRefObservable notifies
+  // about changes in 'notices' node of DB
+  private noticesRefObservable: Observable<NoticeModel[]>;
+  public noticesObservable: Subject<NoticeModel[]> = new Subject<NoticeModel[]>();
+  public noticeFilterObservable: Subject<ORG_CODE> = new Subject<ORG_CODE>();
 
-  branchSpecificNotices: NoticeModel[] = [];
-  allNotices: NoticeModel[] = [];
+  private allNotices: NoticeModel[] = [];
 
   constructor(private angularFirestore: AngularFirestore,
               private userService: UserService) {
-    this.noticesObservable = this.angularFirestore.collection<NoticeModel>('notices').valueChanges();
-    this.noticesObservable.subscribe((notices) => {
+    // Initialize notices observable and update local variables upon changes.
+    this.noticesRefObservable = this.angularFirestore.collection<NoticeModel>('notices').valueChanges();
+    this.noticesRefObservable.subscribe((notices) => {
       this.updateNotices(notices);
     });
   }
 
-  updateNotices(notices: NoticeModel[]): void {
-    this.branchSpecificNotices = notices.filter((notice) => notice.org.code === this.userService.user.branch);
-    this.allNotices = notices.filter((notice) => notice.org.code !== this.userService.user.branch);
+  // Updates the local variables upon changes in 'notices' node. After that it
+  private async updateNotices(notices: NoticeModel[]) {
+    // sort notices in reverse chronological order
+    this.allNotices = this.sortNotices(notices);
 
-    this.branchSpecificNotices = this.sortNotices(this.branchSpecificNotices);
-    this.allNotices = this.sortNotices(this.allNotices);
+    // notifies other part of app about changes in notices arr
+    this.noticesObservable.next(this.allNotices);
   }
 
-  sortNotices(notices: NoticeModel[]): NoticeModel[] {
+  // Function to sort the notices in reverse chronological order.
+  private sortNotices(notices: NoticeModel[]): NoticeModel[] {
     return notices.sort((a, b) => {
       if (a.startDate > b.startDate) { return 1; } else if (a.startDate === b.startDate) { return 0; } else { return -1; }
     });
   }
 
-  getBranchSpecificNotices(): NoticeModel[] {
-    return [...this.branchSpecificNotices];
-  }
-
-  getAllNotices(): NoticeModel[] {
+  // Returns a copy of all notices
+  public getAllNotices(): NoticeModel[] {
     return [...this.allNotices];
   }
 
-  getNoticesByOrg(orgCode: string): NoticeModel[] {
-    return this.allNotices.filter(notice => notice.org.code === orgCode);
+  // Returns a copy of all notices that are from a particular org(except user's branch)
+  public getNoticesByOrg(orgCode: ORG_CODE): NoticeModel[] {
+    return [...this.allNotices.filter(notice => notice.org.code === orgCode)];
   }
 }

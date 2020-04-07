@@ -3,13 +3,151 @@ import {LectureModel} from '../../models/lecture.model';
 export const timetable: LectureModel[] = [
     // Monday
     {
-        subject: 'system software lab',
+        subject: 'applied mathematics-iv',
+        startTime: '08:00',
+        endTime: '09:00',
+        roomNumber: 516,
+        professor: {
+            firstName: 'dorill',
+            lastName: 'carvalho',
+            cabinNumber: 100,
+            department: {
+                name: 'applied science & humanities',
+                code: 'ash'
+            }
+        },
+        day: 1,
+        isPractical: false,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        }
+    },
+    {
+        subject: 'computer graphics',
         startTime: '09:00',
+        endTime: '10:00',
+        roomNumber: 516,
+        professor: {
+            firstName: 'sunil',
+            lastName: 'katkar',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 1,
+        isPractical: false,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        }
+    },
+    {
+        subject: 'computer organization and architecture',
+        startTime: '10:00',
         endTime: '11:00',
+        roomNumber: 516,
+        professor: {
+            firstName: 'sunil',
+            lastName: 'katkar',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 1,
+        isPractical: false,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        }
+    },
+    {
+        subject: 'analysis of algorithms',
+        startTime: '11:15',
+        endTime: '12:15',
+        roomNumber: 516,
+        professor: {
+            firstName: 'sweety',
+            lastName: 'rupani',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 1,
+        isPractical: false,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        }
+    },
+    {
+        subject: 'operating system',
+        startTime: '12:15',
+        endTime: '13:15',
+        roomNumber: 516,
+        professor: {
+            firstName: 'smita',
+            lastName: 'jawale',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 1,
+        isPractical: false,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        }
+    },
+    {
+        subject: 'applied mathematics-iv',
+        startTime: '14:00',
+        endTime: '14:00',
+        roomNumber: 519,
+        professor: {
+            firstName: 'dorill',
+            lastName: 'carvalho',
+            cabinNumber: 100,
+            department: {
+                name: 'applied science & humanities',
+                code: 'ash'
+            }
+        },
+        day: 1,
+        isPractical: false,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        }
+    },
+    {
+        subject: 'computer graphics lab',
+        startTime: '15:00',
+        endTime: '17:00',
         roomNumber: 114,
         professor: {
-            firstName: 'anil',
-            lastName: 'hingmire',
+            firstName: 'sunil',
+            lastName: 'katkar',
             cabinNumber: 100,
             department: {
                 name: 'computer',
@@ -18,8 +156,8 @@ export const timetable: LectureModel[] = [
         },
         day: 1,
         isPractical: true,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
@@ -27,13 +165,13 @@ export const timetable: LectureModel[] = [
         batch: 'A'
     },
     {
-        subject: 'data warehousing & mining lab',
-        startTime: '09:00',
-        endTime: '11:00',
+        subject: 'operating system lab',
+        startTime: '15:00',
+        endTime: '17:00',
         roomNumber: 113,
         professor: {
-            firstName: 'swapna',
-            lastName: 'borde',
+            firstName: 'smita',
+            lastName: 'jawale',
             cabinNumber: 100,
             department: {
                 name: 'computer',
@@ -42,8 +180,8 @@ export const timetable: LectureModel[] = [
         },
         day: 1,
         isPractical: true,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
@@ -51,13 +189,13 @@ export const timetable: LectureModel[] = [
         batch: 'B'
     },
     {
-        subject: 'system security lab',
-        startTime: '09:00',
-        endTime: '11:00',
+        subject: 'processor architecture lab',
+        startTime: '15:00',
+        endTime: '17:00',
         roomNumber: 112,
         professor: {
-            firstName: 'sangita',
-            lastName: 'chaudhari',
+            firstName: 'priya',
+            lastName: 'save',
             cabinNumber: 100,
             department: {
                 name: 'computer',
@@ -66,8 +204,8 @@ export const timetable: LectureModel[] = [
         },
         day: 1,
         isPractical: true,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
@@ -75,13 +213,13 @@ export const timetable: LectureModel[] = [
         batch: 'C'
     },
     {
-        subject: 'software engineering lab',
-        startTime: '09:00',
-        endTime: '11:00',
+        subject: 'analysis of algorithms lab',
+        startTime: '15:00',
+        endTime: '17:00',
         roomNumber: 111,
         professor: {
-            firstName: 'priya',
-            lastName: 'save',
+            firstName: 'sweety',
+            lastName: 'rupani',
             cabinNumber: 100,
             department: {
                 name: 'computer',
@@ -90,136 +228,91 @@ export const timetable: LectureModel[] = [
         },
         day: 1,
         isPractical: true,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
         },
         batch: 'D'
-    },
-    {
-        subject: 'data warehousing & mining',
-        startTime: '11:15',
-        endTime: '12:15',
-        roomNumber: 517,
-        professor: {
-            firstName: 'swapna',
-            lastName: 'borde',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 1,
-        isPractical: false,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        }
-    },
-    {
-        subject: 'system programming & complier construction',
-        startTime: '12:15',
-        endTime: '13:15',
-        roomNumber: 517,
-        professor: {
-            firstName: 'anil',
-            lastName: 'hingmire',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 1,
-        isPractical: false,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        }
-    },
-    {
-        subject: 'cryptography & system security',
-        startTime: '14:00',
-        endTime: '15:00',
-        roomNumber: 517,
-        professor: {
-            firstName: 'sangita',
-            lastName: 'chaudhari',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 1,
-        isPractical: false,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        }
-    },
-    {
-        subject: 'software engineering',
-        startTime: '15:00',
-        endTime: '16:00',
-        roomNumber: 517,
-        professor: {
-            firstName: 'priya',
-            lastName: 'save',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 1,
-        isPractical: false,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        }
-    },
-    {
-        subject: 'mini-project',
-        startTime: '16:00',
-        endTime: '17:00',
-        roomNumber: 111,
-        professor: {
-            firstName: 'megha',
-            lastName: 'trivedi',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 1,
-        isPractical: false,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        }
     },
 
     // Tuesday
     {
-        subject: 'software engineering lab',
+        subject: 'operating system',
         startTime: '09:00',
+        endTime: '10:00',
+        roomNumber: 516,
+        professor: {
+            firstName: 'smita',
+            lastName: 'jawale',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 2,
+        isPractical: false,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        }
+    },
+    {
+        subject: 'analysis of algorithms',
+        startTime: '10:00',
         endTime: '11:00',
+        roomNumber: 516,
+        professor: {
+            firstName: 'sweety',
+            lastName: 'rupani',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 2,
+        isPractical: false,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        }
+    },
+    {
+        subject: 'operating system lab',
+        startTime: '11:15',
+        endTime: '13:15',
         roomNumber: 114,
+        professor: {
+            firstName: 'smita',
+            lastName: 'jawale',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 2,
+        isPractical: true,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        },
+        batch: 'A'
+    },
+    {
+        subject: 'processor architecture lab',
+        startTime: '11:15',
+        endTime: '13:15',
+        roomNumber: 113,
         professor: {
             firstName: 'priya',
             lastName: 'save',
@@ -231,32 +324,8 @@ export const timetable: LectureModel[] = [
         },
         day: 2,
         isPractical: true,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        },
-        batch: 'A'
-    },
-    {
-        subject: 'system software lab',
-        startTime: '09:00',
-        endTime: '11:00',
-        roomNumber: 113,
-        professor: {
-            firstName: 'anil',
-            lastName: 'hingmire',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 2,
-        isPractical: true,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
@@ -264,13 +333,13 @@ export const timetable: LectureModel[] = [
         batch: 'B'
     },
     {
-        subject: 'data warehousing & mining lab',
-        startTime: '09:00',
-        endTime: '11:00',
+        subject: 'analysis of algorithms lab',
+        startTime: '11:15',
+        endTime: '13:15',
         roomNumber: 112,
         professor: {
-            firstName: 'swapna',
-            lastName: 'borde',
+            firstName: 'sweety',
+            lastName: 'rupani',
             cabinNumber: 100,
             department: {
                 name: 'computer',
@@ -279,8 +348,8 @@ export const timetable: LectureModel[] = [
         },
         day: 2,
         isPractical: true,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
@@ -288,13 +357,13 @@ export const timetable: LectureModel[] = [
         batch: 'C'
     },
     {
-        subject: 'system security lab',
-        startTime: '09:00',
-        endTime: '11:00',
+        subject: 'open source tech lab',
+        startTime: '11:15',
+        endTime: '13:15',
         roomNumber: 111,
         professor: {
-            firstName: 'sangita',
-            lastName: 'chaudhari',
+            firstName: 'vikrant',
+            lastName: 'agaskar',
             cabinNumber: 100,
             department: {
                 name: 'computer',
@@ -303,8 +372,8 @@ export const timetable: LectureModel[] = [
         },
         day: 2,
         isPractical: true,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
@@ -312,82 +381,36 @@ export const timetable: LectureModel[] = [
         batch: 'D'
     },
     {
-        subject: 'data warehousing & mining',
-        startTime: '11:15',
-        endTime: '12:15',
-        roomNumber: 516,
-        professor: {
-            firstName: 'swapna',
-            lastName: 'borde',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 2,
-        isPractical: false,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        }
-    },
-    {
-        subject: 'cryptography & system security',
-        startTime: '12:15',
-        endTime: '13:15',
-        roomNumber: 516,
-        professor: {
-            firstName: 'sangita',
-            lastName: 'chaudhari',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 2,
-        isPractical: false,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        }
-    },
-    {
-        subject: 'system programming & complier construction',
+        subject: 'applied mathematics-iv',
         startTime: '14:00',
         endTime: '15:00',
-        roomNumber: 516,
+        roomNumber: 517,
         professor: {
-            firstName: 'anil',
-            lastName: 'hingmire',
+            firstName: 'dorill',
+            lastName: 'carvalho',
             cabinNumber: 100,
             department: {
-                name: 'computer',
-                code: 'comp'
+                name: 'applied science & humanities',
+                code: 'ash'
             }
         },
         day: 2,
         isPractical: false,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
         }
     },
     {
-        subject: 'machine learning',
+        subject: 'computer organization and architecture',
         startTime: '15:00',
         endTime: '16:00',
-        roomNumber: 516,
+        roomNumber: 517,
         professor: {
-            firstName: 'swapna',
-            lastName: 'borde',
+            firstName: 'sunil',
+            lastName: 'katkar',
             cabinNumber: 100,
             department: {
                 name: 'computer',
@@ -396,31 +419,8 @@ export const timetable: LectureModel[] = [
         },
         day: 2,
         isPractical: false,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        }
-    },
-    {
-        subject: 'advanced database management system',
-        startTime: '15:00',
-        endTime: '16:00',
-        roomNumber: 515,
-        professor: {
-            firstName: 'megha',
-            lastName: 'trivedi',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 2,
-        isPractical: false,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
@@ -428,105 +428,36 @@ export const timetable: LectureModel[] = [
     },
     // Wednesday
     {
-        subject: 'machine learning',
-        startTime: '09:00',
-        endTime: '10:00',
-        roomNumber: 516,
+        subject: 'applied mathematics-iv',
+        startTime: '08:00',
+        endTime: '09:00',
+        roomNumber: 514,
         professor: {
-            firstName: 'megha',
-            lastName: 'trivedi',
+            firstName: 'dorill',
+            lastName: 'carvalho',
             cabinNumber: 100,
             department: {
-                name: 'computer',
-                code: 'comp'
+                name: 'applied science & humanities',
+                code: 'ash'
             }
         },
         day: 3,
         isPractical: false,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
         }
     },
     {
-        subject: 'advanced database management system',
+        subject: 'open source tech lab',
         startTime: '09:00',
-        endTime: '10:00',
-        roomNumber: 515,
-        professor: {
-            firstName: 'smita',
-            lastName: 'jawale',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 3,
-        isPractical: false,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        }
-    },
-    {
-        subject: 'data warehousing & mining',
-        startTime: '10:00',
         endTime: '11:00',
-        roomNumber: 516,
-        professor: {
-            firstName: 'swapna',
-            lastName: 'borde',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 3,
-        isPractical: false,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        }
-    },
-    {
-        subject: 'software engineering',
-        startTime: '11:15',
-        endTime: '12:15',
-        roomNumber: 517,
-        professor: {
-            firstName: 'priya',
-            lastName: 'save',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 3,
-        isPractical: false,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        }
-    },
-    {
-        subject: 'system security lab',
-        startTime: '15:00',
-        endTime: '17:00',
         roomNumber: 114,
         professor: {
-            firstName: 'sangita',
-            lastName: 'chaudhari',
+            firstName: 'vikrant',
+            lastName: 'agaskar',
             cabinNumber: 100,
             department: {
                 name: 'computer',
@@ -535,8 +466,8 @@ export const timetable: LectureModel[] = [
         },
         day: 3,
         isPractical: true,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
@@ -544,13 +475,13 @@ export const timetable: LectureModel[] = [
         batch: 'A'
     },
     {
-        subject: 'software engineering lab',
-        startTime: '15:00',
-        endTime: '17:00',
+        subject: 'analysis of algorithms lab',
+        startTime: '09:00',
+        endTime: '11:00',
         roomNumber: 113,
         professor: {
-            firstName: 'priya',
-            lastName: 'save',
+            firstName: 'sweety',
+            lastName: 'rupani',
             cabinNumber: 100,
             department: {
                 name: 'computer',
@@ -559,8 +490,8 @@ export const timetable: LectureModel[] = [
         },
         day: 3,
         isPractical: true,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
@@ -568,13 +499,13 @@ export const timetable: LectureModel[] = [
         batch: 'B'
     },
     {
-        subject: 'system security lab',
-        startTime: '15:00',
-        endTime: '17:00',
+        subject: 'computer graphics lab',
+        startTime: '09:00',
+        endTime: '11:00',
         roomNumber: 112,
         professor: {
-            firstName: 'anil',
-            lastName: 'hingmire',
+            firstName: 'sunil',
+            lastName: 'katkar',
             cabinNumber: 100,
             department: {
                 name: 'computer',
@@ -583,8 +514,8 @@ export const timetable: LectureModel[] = [
         },
         day: 3,
         isPractical: true,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
@@ -592,36 +523,10 @@ export const timetable: LectureModel[] = [
         batch: 'C'
     },
     {
-        subject: 'data warehousing & mining lab',
-        startTime: '15:00',
-        endTime: '17:00',
-        roomNumber: 111,
-        professor: {
-            firstName: 'swapna',
-            lastName: 'borde',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 3,
-        isPractical: true,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        },
-        batch: 'D'
-    },
-
-    // Thursday
-    {
-        subject: 'software engineering',
+        subject: 'processor architecture lab',
         startTime: '09:00',
-        endTime: '10:00',
-        roomNumber: 517,
+        endTime: '11:00',
+        roomNumber: 111,
         professor: {
             firstName: 'priya',
             lastName: 'save',
@@ -631,112 +536,67 @@ export const timetable: LectureModel[] = [
                 code: 'comp'
             }
         },
-        day: 4,
-        isPractical: false,
-        year: 'TE',
-        semester: 6,
+        day: 3,
+        isPractical: true,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
-        }
-    },
-    {
-        subject: 'data warehousing & mining',
-        startTime: '10:00',
-        endTime: '11:00',
-        roomNumber: 517,
-        professor: {
-            firstName: 'swapna',
-            lastName: 'borde',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
         },
-        day: 4,
-        isPractical: false,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        }
+        batch: 'D'
     },
     {
-        subject: 'cryptography & system security',
+        subject: 'computer graphics',
         startTime: '11:15',
         endTime: '12:15',
-        roomNumber: 517,
+        roomNumber: 516,
         professor: {
-            firstName: 'sangita',
-            lastName: 'chaudhari',
+            firstName: 'sunil',
+            lastName: 'katkar',
             cabinNumber: 100,
             department: {
                 name: 'computer',
                 code: 'comp'
             }
         },
-        day: 4,
+        day: 3,
         isPractical: false,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
         }
     },
     {
-        subject: 'system programming & complier construction',
+        subject: 'open source tech lab',
         startTime: '12:15',
         endTime: '13:15',
-        roomNumber: 517,
+        roomNumber: 516,
         professor: {
-            firstName: 'anil',
-            lastName: 'hingmire',
+            firstName: 'sweety',
+            lastName: 'rupani',
             cabinNumber: 100,
             department: {
                 name: 'computer',
                 code: 'comp'
             }
         },
-        day: 4,
+        day: 3,
         isPractical: false,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
         }
     },
     {
-        subject: 'machine learning',
+        subject: 'operating system',
         startTime: '14:00',
         endTime: '15:00',
-        roomNumber: 517,
-        professor: {
-            firstName: 'megha',
-            lastName: 'trivedi',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 4,
-        isPractical: false,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        }
-    },
-    {
-        subject: 'advanced database management system',
-        startTime: '14:00',
-        endTime: '15:00',
-        roomNumber: 515,
+        roomNumber: 516,
         professor: {
             firstName: 'smita',
             lastName: 'jawale',
@@ -746,46 +606,166 @@ export const timetable: LectureModel[] = [
                 code: 'comp'
             }
         },
-        day: 4,
+        day: 3,
         isPractical: false,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
         }
     },
     {
-        subject: 'mini-project',
+        subject: 'applied mathematics-iv',
         startTime: '15:00',
         endTime: '16:00',
-        roomNumber: 111,
+        roomNumber: 516,
         professor: {
-            firstName: 'megha',
-            lastName: 'trivedi',
+            firstName: 'dorill',
+            lastName: 'carvalho',
             cabinNumber: 100,
             department: {
-                name: 'computer',
-                code: 'comp'
+                name: 'applied science & humanities',
+                code: 'ash'
             }
         },
-        day: 4,
+        day: 3,
         isPractical: false,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
         }
     },
     {
-        subject: 'mini-project',
+        subject: 'computer organization and architecture',
         startTime: '16:00',
         endTime: '17:00',
+        roomNumber: 516,
+        professor: {
+            firstName: 'sunil',
+            lastName: 'katkar',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 3,
+        isPractical: false,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        }
+    },
+    // Thursday
+    {
+        subject: 'analysis of algorithms lab',
+        startTime: '09:00',
+        endTime: '11:00',
+        roomNumber: 114,
+        professor: {
+            firstName: 'sweety',
+            lastName: 'rupani',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 4,
+        isPractical: true,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        },
+        batch: 'A'
+    },
+    {
+        subject: 'open source tech lab',
+        startTime: '09:00',
+        endTime: '11:00',
+        roomNumber: 113,
+        professor: {
+            firstName: 'vikrant',
+            lastName: 'agaskar',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 4,
+        isPractical: true,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        },
+        batch: 'B'
+    },
+    {
+        subject: 'operating system lab',
+        startTime: '09:00',
+        endTime: '11:00',
+        roomNumber: 112,
+        professor: {
+            firstName: 'smita',
+            lastName: 'jawale',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 4,
+        isPractical: true,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        },
+        batch: 'C'
+    },
+    {
+        subject: 'computer graphics lab',
+        startTime: '09:00',
+        endTime: '11:00',
         roomNumber: 111,
         professor: {
-            firstName: 'megha',
-            lastName: 'trivedi',
+            firstName: 'sunil',
+            lastName: 'katkar',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 4,
+        isPractical: true,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        },
+        batch: 'D'
+    },
+    {
+        subject: 'open source tech lab',
+        startTime: '11:15',
+        endTime: '12:15',
+        roomNumber: 516,
+        professor: {
+            firstName: 'sweety',
+            lastName: 'rupani',
             cabinNumber: 100,
             department: {
                 name: 'computer',
@@ -794,23 +774,114 @@ export const timetable: LectureModel[] = [
         },
         day: 4,
         isPractical: false,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
         }
     },
-
+    {
+        subject: 'computer organization and architecture',
+        startTime: '12:15',
+        endTime: '13:15',
+        roomNumber: 516,
+        professor: {
+            firstName: 'sunil',
+            lastName: 'katkar',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 4,
+        isPractical: false,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        }
+    },
+    {
+        subject: 'computer graphics',
+        startTime: '14:00',
+        endTime: '15:00',
+        roomNumber: 516,
+        professor: {
+            firstName: 'sunil',
+            lastName: 'katkar',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 4,
+        isPractical: false,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        }
+    },
+    {
+        subject: 'analysis of algorithms',
+        startTime: '15:00',
+        endTime: '16:00',
+        roomNumber: 516,
+        professor: {
+            firstName: 'sweety',
+            lastName: 'rupani',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 4,
+        isPractical: false,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        }
+    },
+    {
+        subject: 'applied mathematics-iv',
+        startTime: '16:00',
+        endTime: '17:00',
+        roomNumber: 514,
+        professor: {
+            firstName: 'dorill',
+            lastName: 'carvalho',
+            cabinNumber: 100,
+            department: {
+                name: 'applied science & humanities',
+                code: 'ash'
+            }
+        },
+        day: 4,
+        isPractical: false,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        }
+    },
     // Friday
     {
-        subject: 'system programming & complier construction',
+        subject: 'analysis of algorithms',
         startTime: '09:00',
         endTime: '10:00',
-        roomNumber: 517,
+        roomNumber: 516,
         professor: {
-            firstName: 'anil',
-            lastName: 'hingmire',
+            firstName: 'sweety',
+            lastName: 'rupani',
             cabinNumber: 100,
             department: {
                 name: 'computer',
@@ -819,21 +890,44 @@ export const timetable: LectureModel[] = [
         },
         day: 5,
         isPractical: false,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
         }
     },
     {
-        subject: 'machine learning',
+        subject: 'applied mathematics-iv',
         startTime: '10:00',
         endTime: '11:00',
-        roomNumber: 517,
+        roomNumber: 516,
         professor: {
-            firstName: 'swapna',
-            lastName: 'borde',
+            firstName: 'dorill',
+            lastName: 'carvalho',
+            cabinNumber: 100,
+            department: {
+                name: 'applied science & humanities',
+                code: 'ash'
+            }
+        },
+        day: 5,
+        isPractical: false,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        }
+    },
+    {
+        subject: 'processor architecture lab',
+        startTime: '11:15',
+        endTime: '13:15',
+        roomNumber: 114,
+        professor: {
+            firstName: 'priya',
+            lastName: 'save',
             cabinNumber: 100,
             department: {
                 name: 'computer',
@@ -841,19 +935,92 @@ export const timetable: LectureModel[] = [
             }
         },
         day: 5,
-        isPractical: false,
-        year: 'TE',
-        semester: 6,
+        isPractical: true,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
-        }
+        },
+        batch: 'A'
     },
     {
-        subject: 'advanced database management system',
-        startTime: '10:00',
-        endTime: '11:00',
-        roomNumber: 515,
+        subject: 'computer graphics lab',
+        startTime: '11:15',
+        endTime: '13:15',
+        roomNumber: 113,
+        professor: {
+            firstName: 'sunil',
+            lastName: 'katkar',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 5,
+        isPractical: true,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        },
+        batch: 'B'
+    },
+    {
+        subject: 'open source tech lab',
+        startTime: '11:15',
+        endTime: '13:15',
+        roomNumber: 112,
+        professor: {
+            firstName: 'vikrant',
+            lastName: 'agaskar',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 5,
+        isPractical: true,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        },
+        batch: 'C'
+    },
+    {
+        subject: 'operating system lab',
+        startTime: '11:15',
+        endTime: '13:15',
+        roomNumber: 111,
+        professor: {
+            firstName: 'smita',
+            lastName: 'jawale',
+            cabinNumber: 100,
+            department: {
+                name: 'computer',
+                code: 'comp'
+            }
+        },
+        day: 5,
+        isPractical: true,
+        year: 'SE',
+        semester: 4,
+        branch: {
+            name: 'computer',
+            code: 'comp'
+        },
+        batch: 'D'
+    },
+    {
+        subject: 'operating system',
+        startTime: '14:00',
+        endTime: '15:00',
+        roomNumber: 516,
         professor: {
             firstName: 'smita',
             lastName: 'jawale',
@@ -865,21 +1032,21 @@ export const timetable: LectureModel[] = [
         },
         day: 5,
         isPractical: false,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
         }
     },
     {
-        subject: 'software engineering',
-        startTime: '11:15',
-        endTime: '12:15',
-        roomNumber: 517,
+        subject: 'computer graphics',
+        startTime: '15:00',
+        endTime: '16:00',
+        roomNumber: 516,
         professor: {
-            firstName: 'priya',
-            lastName: 'save',
+            firstName: 'sunil',
+            lastName: 'katkar',
             cabinNumber: 100,
             department: {
                 name: 'computer',
@@ -888,130 +1055,34 @@ export const timetable: LectureModel[] = [
         },
         day: 5,
         isPractical: false,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
         }
     },
     {
-        subject: 'cryptography & system security',
-        startTime: '12:15',
-        endTime: '13:15',
-        roomNumber: 517,
+        subject: 'applied mathematics-iv',
+        startTime: '16:00',
+        endTime: '17:00',
+        roomNumber: 514,
         professor: {
-            firstName: 'sangita',
-            lastName: 'chaudhari',
+            firstName: 'dorill',
+            lastName: 'carvalho',
             cabinNumber: 100,
             department: {
-                name: 'computer',
-                code: 'comp'
+                name: 'applied science & humanities',
+                code: 'ash'
             }
         },
         day: 5,
         isPractical: false,
-        year: 'TE',
-        semester: 6,
+        year: 'SE',
+        semester: 4,
         branch: {
             name: 'computer',
             code: 'comp'
         }
-    },
-    {
-        subject: 'data warehousing & mining lab',
-        startTime: '14:00',
-        endTime: '16:00',
-        roomNumber: 114,
-        professor: {
-            firstName: 'swapna',
-            lastName: 'borde',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 5,
-        isPractical: true,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        },
-        batch: 'A'
-    },
-    {
-        subject: 'system security lab',
-        startTime: '14:00',
-        endTime: '16:00',
-        roomNumber: 113,
-        professor: {
-            firstName: 'sangita',
-            lastName: 'chaudhari',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 5,
-        isPractical: true,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        },
-        batch: 'B'
-    },
-    {
-        subject: 'software engineering lab',
-        startTime: '14:00',
-        endTime: '16:00',
-        roomNumber: 112,
-        professor: {
-            firstName: 'priya',
-            lastName: 'save',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 5,
-        isPractical: true,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        },
-        batch: 'C'
-    },
-    {
-        subject: 'system programming & complier construction',
-        startTime: '14:00',
-        endTime: '16:00',
-        roomNumber: 111,
-        professor: {
-            firstName: 'anil',
-            lastName: 'hingmire',
-            cabinNumber: 100,
-            department: {
-                name: 'computer',
-                code: 'comp'
-            }
-        },
-        day: 5,
-        isPractical: true,
-        year: 'TE',
-        semester: 6,
-        branch: {
-            name: 'computer',
-            code: 'comp'
-        },
-        batch: 'D'
     }
 ];

@@ -13,6 +13,7 @@ export class HomeGuardService implements CanLoad {
   constructor(private userService: UserService,
               private router: Router) {}
 
+  // ensure that user can go to home page(and some other pages) only when it is authenticated
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
     this.userService.hasUserNative().then((hasUser) => {
       if (!hasUser) {

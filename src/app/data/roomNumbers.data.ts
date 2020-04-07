@@ -1,18 +1,6 @@
-let roomNumbers: number[] = [
-    212,
-    515,
-    213,
-    502,
-    201,
-    510,
-    210,
-    512,
-    210,
-    509,
-    204,
-    312
-];
+import {allBranchTimeTable} from './allBranchTimetable.data';
 
-roomNumbers = roomNumbers.sort((a, b) => a > b ? 1 : (a === b ? 0 : -1));
-
-export default roomNumbers;
+export const roomNumbers: number[] = Array.from(new Set(
+    allBranchTimeTable.map(lecture => lecture.roomNumber)
+        .sort((a, b) => a > b ? 1 : -1)
+));

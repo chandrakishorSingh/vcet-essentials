@@ -11,6 +11,7 @@ export class AuthGuardService implements CanActivate {
 
   constructor(private userService: UserService) { }
 
+  // ensure that the user can go to auth page only when it is unauthenticated
   canActivate(route: ActivatedRouteSnapshot,
               state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.userService.hasUserNative().then(hasUser => !hasUser);

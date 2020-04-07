@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { HomePage } from './home.page';
 
 import {HomeRoutingModule} from './home-routing.module';
+import {UserService} from '../shared-services/user.service';
 
 
 @NgModule({
@@ -18,6 +19,9 @@ import {HomeRoutingModule} from './home-routing.module';
   ],
   declarations: [HomePage],
   exports: [
+  ],
+  providers: [
+      UserService
   ]
 })
 export class HomePageModule {}

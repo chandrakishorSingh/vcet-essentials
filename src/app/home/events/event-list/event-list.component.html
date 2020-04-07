@@ -17,13 +17,13 @@
       </ion-list>
     </ion-col>
   </ion-row>
-  <ion-row *ngIf="events.length === 0 || !events">
+  <ion-row *ngIf="!events || events.length === 0">
     <ion-col>
       <ion-text color="medium">
-        <div *ngIf="filterOrgCode">
-          <h4><strong>There are no {{ eventCategory }} events by {{ orgs[filterOrgCode].name + ' ' | titlecase }} {{ orgs[filterOrgCode].type | titlecase }}.</strong></h4>
+        <div *ngIf="org">
+          <h4><strong>There are no {{ eventCategory }} events by {{ org.name + ' ' | titlecase }} {{ org.type | titlecase }}.</strong></h4>
         </div>
-        <div *ngIf="!filterOrgCode">
+        <div *ngIf="!org">
           <h4><strong>There are no {{ eventCategory }} events.</strong></h4>
         </div>
       </ion-text>

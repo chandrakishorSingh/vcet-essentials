@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProfessorModel} from '../../models/professor.model';
 import {LectureModel} from '../../models/lecture.model';
 
-import professors from '../../data/professors.data';
+import {professors} from '../../data/professors.data';
 import {CollegeScheduleService} from '../../shared-services/college-schedule.service';
 
 @Component({

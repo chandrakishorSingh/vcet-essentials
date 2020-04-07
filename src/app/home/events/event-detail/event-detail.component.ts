@@ -3,9 +3,9 @@ import {ActivatedRoute} from '@angular/router';
 
 import {EventService} from '../services/event.service';
 
-import {EventModel} from '../models/event.model';
+import {EventModel} from '../../../models/event.model';
 
-import socialMediaIcons from '../data/socialMediaIcons.data';
+import socialMediaIcons from '../../../data/socialMediaIcons.data';
 
 @Component({
   selector: 'app-event-detail',
@@ -21,6 +21,7 @@ export class EventDetailComponent implements OnInit {
               private eventService: EventService) { }
 
   ngOnInit() {
+    // extract the index and event category from the url and get necessary event obj
     const index = +this.activatedRoute.snapshot.paramMap.get('id');
     const eventCategory = this.activatedRoute.snapshot.paramMap.get('eventCategory') as 'current' | 'upcoming';
 

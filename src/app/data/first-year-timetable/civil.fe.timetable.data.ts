@@ -39,7 +39,7 @@ import {LectureModel} from '../../models/lecture.model';
     }
 */
 
-const timetable: LectureModel[] = [
+export const timetable: LectureModel[] = [
     // Monday
 
     // Tuesday
@@ -50,5 +50,3 @@ const timetable: LectureModel[] = [
 
     // Friday
 ];
-
-export default timetable;
