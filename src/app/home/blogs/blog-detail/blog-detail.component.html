@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home/tabs/events"></ion-back-button>
+      <ion-back-button defaultHref="/home/tabs/blogs"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ event.title | titlecase }}</ion-title>
+    <ion-title>{{ blog.title | titlecase }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,15 +12,15 @@
     <ion-row>
       <ion-col class="ion-no-padding">
         <!-- poster -->
-        <ion-img [src]="event.posterURL"></ion-img>
+        <ion-img [src]="blog.posterURL"></ion-img>
         <!-- social media -->
-        <div *ngIf="event.socialMedia">
+        <div *ngIf="blog.socialMedia">
           <ion-toolbar>
             <ion-buttons slot="end">
               <ion-item button
                         (click)="onSocialMediaClick(socialMedia.url)"
                         color="primary"
-                        *ngFor="let socialMedia of event.socialMedia">
+                        *ngFor="let socialMedia of blog.socialMedia">
                 <ion-icon [name]="socialMediaIcons[socialMedia.platform]" size="large"></ion-icon>
               </ion-item>
             </ion-buttons>
@@ -30,44 +30,31 @@
     </ion-row>
     <ion-row>
       <ion-col class="ion-padding ion-text-center">
-        <ion-text>{{ event.description }}</ion-text>
+        <ion-text>{{ blog.description }}</ion-text>
       </ion-col>
     </ion-row>
     <ion-row class="ion-padding">
       <ion-col>
         <ion-text>
-          <strong>Venue :</strong> {{ event.venue | titlecase }}
+          <strong>After reading this blog you will get to know... :</strong>
+        </ion-text>
+        <ul class="blog-points">
+          <li *ngFor="let point of blog.featurePoints">{{ point }}</li>
+        </ul>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-padding">
+      <ion-col>
+        <ion-text>
+          <strong>Read full blog here : </strong>
+          <a target="_blank" [href]="blog.blogURL">{{ blog.title }}</a>
         </ion-text>
       </ion-col>
     </ion-row>
     <ion-row class="ion-padding">
       <ion-col>
         <ion-text>
-          <strong>Timing :</strong> {{ event.startTime }}
-          <strong>to :</strong> {{ event.endTime }}
-        </ion-text>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-padding">
-      <ion-col>
-        <ion-text>
-          <strong>From :</strong> {{ event.startDate | date }}
-          <strong>To :</strong> {{ event.endDate | date }}
-        </ion-text>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-padding">
-      <ion-col>
-        <ion-text>
-          <strong>Organising Committee/Dept. :</strong> {{ event.org.name + ' ' + event.org.type | titlecase }}
-        </ion-text>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-padding" *ngIf="event.pdfURL">
-      <ion-col>
-        <ion-text>
-          <strong>Download pdf : </strong>
-          <a target="_blank" [download]="event.title + '.pdf'" [href]="event.pdfURL">{{ event.title }}-pdf</a>
+          <strong>Posted By :</strong> {{ blog.org.name + ' ' + blog.org.type | titlecase }}
         </ion-text>
       </ion-col>
     </ion-row>

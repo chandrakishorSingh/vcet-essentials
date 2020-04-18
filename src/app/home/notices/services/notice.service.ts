@@ -26,14 +26,14 @@ export class NoticeService {
   constructor(private angularFirestore: AngularFirestore,
               private userService: UserService) {
     // Initialize notices observable and update local variables upon changes.
-    this.noticesRefObservable = this.angularFirestore.collection<NoticeModel>('notices').valueChanges();
+    this.noticesRefObservable = this.angularFirestore.collectionGroup<NoticeModel>('notices').valueChanges();
     this.noticesRefObservable.subscribe((notices) => {
       this.updateNotices(notices);
     });
   }
 
-  // Updates the local variables upon changes in 'notices' node. After that it
-  private async updateNotices(notices: NoticeModel[]) {
+  // Updates the local variables upon changes in 'notices' node.
+  private updateNotices(notices: NoticeModel[]) {
     // sort notices in reverse chronological order
     this.allNotices = this.sortNotices(notices);
 

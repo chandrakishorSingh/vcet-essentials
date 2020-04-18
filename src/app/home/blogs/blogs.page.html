@@ -6,21 +6,22 @@
     <ion-title>Blogs</ion-title>
     <ion-item slot="end" button color="primary">
       <!-- filter chip -->
-      <ion-chip *ngIf="isFilterActive" (click)="onChipPress()">
+      <ion-chip *ngIf="isFilterActive" (click)="onChipRemove()">
         <ion-label color="light">{{ chipText | uppercase }}</ion-label>
         <ion-icon name="close"></ion-icon>
       </ion-chip>
       <!-- filter icon & label -->
-      <ion-icon name="funnel"></ion-icon>
-      <ion-label>Filter</ion-label>
+      <ion-icon *ngIf="!isFilterActive" name="funnel"></ion-icon>
+      <ion-label *ngIf="!isFilterActive">Filter</ion-label>
       <!-- select option -->
-      <ion-select (ionChange)="onFilterChange($event)" *ngIf="!isFilterActive">
-        <ion-select-option *ngFor="let option of filter" [value]="option.value" [disabled]="option.disable">{{ option.text | titlecase }}</ion-select-option>
+      <ion-select (ionChange)="onFilterSelect($event)" *ngIf="!isFilterActive">
+        <ion-select-option *ngFor="let option of filter" [value]="option.code">
+          {{ (option.type === 'department' ? 'Dept. of ' + option.name + ' Engineering' : option.name + ' Committee') | titlecase }}</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <app-blog-list></app-blog-list>
 </ion-content>

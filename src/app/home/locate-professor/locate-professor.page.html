@@ -30,7 +30,9 @@
           <app-classroom-info-card [lecture]="currentLecture"></app-classroom-info-card>
         </div>
         <div *ngIf="!currentLecture && selectedProfessor">
-          <h5 class="ion-padding">{{ currentProfessorName }} is currently not teaching in any class. Below is professor's cabin room no.</h5>
+          <ion-text>
+            <h5 class="ion-padding">{{ currentProfessorName }} is currently not teaching in any class. Below is professor's cabin room no.</h5>
+          </ion-text>
           <ion-card>
             <ion-card-header>
               <ion-card-title>{{ 'Prof. ' + selectedProfessor.firstName + ' ' + selectedProfessor.lastName | titlecase }}</ion-card-title>

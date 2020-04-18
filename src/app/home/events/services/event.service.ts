@@ -18,8 +18,9 @@ export class EventService {
   private upcomingEvents: EventModel[] = [];
 
   constructor(private angularFirestore: AngularFirestore) {
-    this.eventsObservable = this.angularFirestore.collection<EventModel>('events').valueChanges();
+    this.eventsObservable = this.angularFirestore.collectionGroup<EventModel>('events').valueChanges();
     this.eventsObservable.subscribe((events) => {
+      // console.log(events);
       this.updateEvents(events);
     });
   }

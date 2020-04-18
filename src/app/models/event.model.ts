@@ -10,6 +10,7 @@ export class EventModel {
                 public endTime: string,
                 public posterURL: string,
                 public org: OrgModel,
+                public id: string,
                 public title: string,
                 public venue: string,
                 public createdAt: string,

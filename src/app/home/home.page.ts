@@ -3,6 +3,7 @@ import {AlertController, LoadingController} from '@ionic/angular';
 
 import {AuthService} from '../auth/services/auth.service';
 import {UserService} from '../shared-services/user.service';
+import {BlogService} from './blogs/services/blog.service';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import {UserService} from '../shared-services/user.service';
 export class HomePage implements OnInit {
 
   constructor(private authService: AuthService,
+              private blogService: BlogService,
               private userService: UserService,
               private loadingController: LoadingController,
               private alertCtrl: AlertController) {}
